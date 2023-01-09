@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>صلوات</title>
+
+</head>
+<body>
+<div class="shape-outer bevel">
+<div class="shape-inner bevel"><h2 class="adder"></h2></div></div>
+<br>
+<button class="counter-plus"><span class="text">+</span></button>
+<button class="counter-reset"><span class="text" onclick="clickk()">ثبت</span></button>
+<br>
+<div class="shape-outer heptagon">
+<div class="shape-inner heptagon"><h1 class="counter-display"></h1></div>
+</div>
+<br>
+<input type="number" class="counter-num"placeholder="0"min="1">
+
+    <script>
+    let counterDisplayElem = document.querySelector('.counter-display');
+    let counterPlusElem = document.querySelector('.counter-plus');
+    let counterReset = document.querySelector('.counter-reset');
+    let counterAdder = document.querySelector('.adder');
+    let counterNum = document.querySelector(".counter-num");  
+    let count = 0;
+    let counter = 0;
+
+    updateDisplay();
+    function clickk() {
+    updateDisplay();
+    count=+counterNum.value+count;
+    updateDisplay();
+    counterAdder.innerHTML = "مجموع صلوات : " + count; 
+    }
+    counterPlusElem.addEventListener("click", () => {
+        count++;
+        counter++;
+        updateDisplay();
+    });
+    counterReset.addEventListener("click", () => {
+    updateDisplay();
+    counterAdder.innerHTML = "مجموع صلوات : "+ count; 
+    counterDisplayElem.innerHTML= "صلوات شما در این نوبت : " + 0;
+    counterNum.value = 0;
+    });
+    
+    function updateDisplay() {
+        counterDisplayElem.innerHTML = "صلوات شما در این نوبت : "+counter;
+    };
+    </script>
+
+
+
+</div>
+</body>
+
+</html>
